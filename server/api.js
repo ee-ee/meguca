@@ -55,7 +55,7 @@ app.get(/\/api\/(catalog|board)\/([a-z0-9]+)\/?/, function(req, res){
 	var limit = par[0] == 'board' ? state.hot.THREADS_PER_PAGE : 0;
 
 	// Read threads in reverse order from redis
-	r.zrange(`tag:${db.tag_key(par[1])}:threads`, 0, -1, function(err, nums) {
+	r.zrange("tag:${db.tag_key(par[1])}:threads", 0, -1, function(err, nums) {
 		if (err)
 			return res.send(err);
 		if (!nums || nums.length === 0)
