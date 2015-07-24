@@ -41,7 +41,7 @@
 	}
 
 	connSM.act('load + start -> conn', function () {
-		sync_status('Connecting');
+		sync_status('Conectando');
 		attempts = 0;
 		connect();
 	});
@@ -73,13 +73,13 @@
 	};
 
 	connSM.act('conn, reconn + open -> syncing', function () {
-		sync_status('Syncing');
+		sync_status('Sincronizando');
 		CONN_ID = random_id();
 		send([DEF.SYNCHRONIZE, CONN_ID, BOARD, syncs, BUMP, document.cookie]);
 	});
 
 	connSM.act('syncing + sync -> synced', function () {
-		sync_status('Synced');
+		sync_status('Sincronizado');
 		attemptTimer = setTimeout(function () {
 			attemptTimer = 0;
 			reset_attempts();
@@ -105,7 +105,7 @@
 			clearTimeout(attemptTimer);
 			attemptTimer = 0;
 		}
-		sync_status('Dropped');
+		sync_status('Caiu; atualize ou aguarde');
 		attempts++;
 		var n = Math.min(Math.floor(attempts/2), 12);
 		var wait = 500 * Math.pow(1.5, n);
@@ -118,12 +118,12 @@
 		/* Don't show this immediately so we don't thrash on network loss */
 		setTimeout(function () {
 			if (connSM.state == 'reconn')
-				sync_status('Reconnecting');
+				sync_status('Reconectando');
 		}, 100);
 	});
 
 	connSM.act('* + invalid, desynced + close -> desynced', function (msg) {
-		msg = (msg && msg[0]) ? 'Out of sync: ' + msg[0] : 'Out of sync';
+		msg = (msg && msg[0]) ? 'Fora de sincronia: ' + msg[0] : 'Fora de sincronia';
 		sync_status(msg);
 		if (attemptTimer) {
 			clearTimeout(attemptTimer);
