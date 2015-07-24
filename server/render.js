@@ -68,7 +68,7 @@ exports.write_thread_html = function (reader, req, out, opts) {
 				if (first_reply_num)
 					url += '#' + first_reply_num;
 				o += ' '+common.action_link_html(url,
-						'See all');
+						'Ver todos');
 			}
 			out.write('\t<span class="omit">'+o+'</span>\n');
 		};
@@ -153,8 +153,8 @@ exports.write_thread_head = function (out, board, op, opts) {
 	out.write(indexTmpl[i++]);
 	out.write(title);
 	out.write(indexTmpl[i++]);
-	out.write(common.action_link_html('#bottom', 'Bottom'));
-	out.write(common.action_link_html('', 'Expand Images', 'expandImages'));
+	out.write(common.action_link_html('#bottom', 'Rodapé'));
+	out.write(common.action_link_html('', 'Expandir imagens', 'expandImages'));
 	out.write('<hr class="sectionHr">\n');
 };
 
@@ -165,8 +165,8 @@ exports.write_thread_title = function(out, board, op, opts){
 	else
 		title += ' - #' + op;
 	out.write('<h1>'+title+'</h1>');
-	out.write(common.action_link_html('#bottom', 'Bottom'));
-	out.write(common.action_link_html('', 'Expand Images', 'expandImages'));
+	out.write(common.action_link_html('#bottom', 'Rodapé'));
+	out.write(common.action_link_html('', 'Expandir imagens', 'expandImages'));
 	out.write('<hr class="sectionHr">\n');
 };
 
@@ -187,9 +187,9 @@ function make_thread_meta(board, num, abbrev) {
 exports.make_pagination_html = function (info) {
 	var bits = ['<nav class="pagination act">'], cur = info.cur_page;
 	if (cur >= 0)
-		bits.push('<a href=".">live</a>');
+		bits.push('<a href=".">ao vivo</a>');
 	else
-		bits.push('<strong>live</strong>');
+		bits.push('<strong>ao vivo</strong>');
 	var start = 0, end = info.pages, step = 1;
 	if (info.ascending) {
 		start = end - 1;
@@ -201,13 +201,13 @@ exports.make_pagination_html = function (info) {
 		else
 			bits.push('<strong>' + i + '</strong>');
 	}
-	bits.push('] [<a class="catalogLink">Catalog</a>');
+//	bits.push('] [<a class="catalogLink">Catálogo</a>');
 	bits.push('</nav>');
 	return bits.join('');
 };
 
-var returnHTML = common.action_link_html('.', 'Return').replace(
-		'span', 'span id="bottom"').replace('</span>', '] [<a href="#">Top</a></span>');
+var returnHTML = common.action_link_html('.', 'Retornar').replace(
+		'span', 'span id="bottom"').replace('</span>', '] [<a href="#">Topo</a></span>');
 
 exports.write_page_end = function (out, ident, returnLink, min) {
 	if (returnLink)
