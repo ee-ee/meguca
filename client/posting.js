@@ -1,5 +1,5 @@
 var saku, postForm;
-var UPLOADING_MSG = 'Uploading...';
+var UPLOADING_MSG = 'Enviando...';
 
 connSM.on('synced', postSM.feeder('sync'));
 connSM.on('dropped', postSM.feeder('desync'));
@@ -120,7 +120,7 @@ function open_post_box(num) {
 }
 
 function make_reply_box() {
-	return $('<aside class="act"><a>Reply</a></aside>');
+	return $('<aside class="act"><a>Postar</a></aside>');
 }
 
 function insert_pbs() {
@@ -130,7 +130,7 @@ function insert_pbs() {
 		return;
 	make_reply_box().appendTo('section');
 	if (!nashi.upload && BUMP)
-		$ceiling.after('<aside class="act"><a>New thread</a></aside>');
+		$ceiling.after('<aside class="act"><a>Novo tópico</a></aside>');
 }
 
 function get_nonces() {

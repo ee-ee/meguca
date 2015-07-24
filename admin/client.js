@@ -19,12 +19,12 @@ function show_toolbox() {
 		specs.push({name: 'Notification', kind: 'notification'});
 		if (THREAD)
 			specs.push({name: 'Fun', kind: 'fun'});
-		specs.push({name: 'Panel', kind: 'panel'});
+		specs.push({name: 'Painel', kind: 'panel'});
 	}
 	var $toolbox = $('<div/>', {id: 'toolbox', "class": 'mod'});
 
 	$selectButton = $('<input />', {
-		type: 'button', val: 'Select',
+        type: 'button', val: 'Moderar',
 		click: function (e) { toggle_multi_selecting(); },
 	});
 	$toolbox.append($selectButton, ' ');
@@ -117,7 +117,7 @@ function toggle_multi_selecting(model, $post) {
 		$('body').removeClass('multi-select');
 		$('.select-handle').remove();
 		$controls.hide();
-		$selectButton.val('Select');
+		$selectButton.val('Moderar');
 	}
 	});
 	if ($post)
@@ -157,7 +157,7 @@ $DOC.on('click', '.select-handle', function (event) {
 });
 
 with_dom(function () {
-	$('h1').text('Moderation - ' + $('h1').text());
+	$('h1').text('Moderação - ' + $('h1').text());
 	var $authname = $('<input>', {type: 'checkbox', id: 'authname'});
 	var $label = $('<label/>', {text: ' '+IDENT.auth}).prepend($authname);
 	$name.after(' ', $label);
@@ -496,7 +496,7 @@ function toggle_panel() {
 // XXX: This really should be a backbone view, but we need to turn showtoolbox()
 // into a view for that first
 function globalNotification(){
-	var msg = prompt('Enter notification message here:');
+	var msg = prompt('Digite algo aqui:');
 	// Canceled
 	if (!msg)
 		return;

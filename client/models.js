@@ -45,7 +45,7 @@ function unloadTopPost(){
 		var url = THREAD;
 		if (!!location.hash)
 			url += location.hash;
-		$omit.append(action_link_html(url, 'See all')+'\n');
+		$omit.append(action_link_html(url, 'Ver todos')+'\n');
 		$('section>blockquote').after($omit);
 	}
 	else {
@@ -170,7 +170,7 @@ var Article = Backbone.View.extend({
 			return this;
 		}
 		if (!$list.length)
-			$list = $('<small/>', {text: 'Replies:'}).appendTo(
+			$list = $('<small/>', {text: 'Respostas:'}).appendTo(
 					this.$el);
 		// TODO: Sync up DOM gracefully instead of clobbering
 		$list.find('a').remove();
