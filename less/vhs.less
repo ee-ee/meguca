@@ -1,8 +1,8 @@
 @import "common";
 @link: #fff;
 @postBG: #202020;
-@border: 1px solid #b7c5d9;
-@bold: #117743;
+@border: none;
+@bold: white;
 @admin: #f00000;
 @mod: purple;
 @font-face {
@@ -12,6 +12,10 @@
 @font-face {
   font-family: "VHSs";
   src: url("fonts/CAMCORDER_REG.otf");
+}
+@font-face {
+    font-family: "VHSX";
+    src: url("fonts/CAMCORDER_OL1.otf");
 }
 body {
   background: #000 url("vhs_bg.png");
@@ -34,7 +38,41 @@ a:hover {
   color: #a0a0a0;
   text-decoration: underline;
 }
-input,
-textarea {
-  color: #909090;
+input[type="text"], textarea {
+  background-color:#101010;
+  border:1px solid #202020;
+  color:white;
+}
+input#subject, textarea#trans {
+  color:white;
+}
+#banner {
+  background-color: #222;
+  box-shadow: 0 -1px 8px black;
+}
+#banner a {
+  color: #ddd;
+  font-family: "VHSs";
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 1px;
+  padding: 16px 3px;
+}
+#banner a:hover {
+  background: #444;
+}
+#banner b#onlineCount,
+#banner b#sync {
+  padding:16px 3px;
+  margin: 0 1px;
+}
+#banner a#logo {
+  float:left;
+  font-family: "VHSX";
+  color: #ddd;
+  font-size: 36px;
+  padding: 6px;
+}
+em {
+  color:#789922;
 }
