@@ -167,6 +167,7 @@ function parent_model($el) {
 	/* THEMES */
 
 	var themes = [
+		'vhs',
 		'moe',
 		'gar',
 		'mawaru',
