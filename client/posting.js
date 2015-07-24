@@ -268,7 +268,7 @@ var ComposerView = Backbone.View.extend({
 		this.blockquote.append(this.buffer, this.line_buffer, this.$input);
 		post.append(this.meta, this.blockquote);
 		if (!op) {
-			post.append('<label for="subject">Subject: </label>',
+			post.append('<label for="subject">Assunto: </label>',
 					this.$subject);
 			this.blockquote.hide();
 		}
@@ -753,7 +753,7 @@ var ComposerView = Backbone.View.extend({
 		var form = $('<form method="post" enctype="multipart/form-data" '
 			+ 'target="upload"></form>');
 		this.$cancel = $('<input>', {
-			type: 'button', value: 'Cancel',
+			type: 'button', value: 'Cancelar',
 			click: $.proxy(this, 'cancel'),
 		});
 		this.$imageInput = $('<input>', {
